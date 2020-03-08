@@ -23,7 +23,7 @@ public class Main {
 		}
 
 //sin cos -sin -cos sin
-		for(int op = 0 ;op < 13 ; op ++){
+		for(int op = 0 ;op < 13 ;  ++op){
 
 			double tmp = Math.pow(dataT,op)*(Math.cos(0))/factorial(op);
 
@@ -53,7 +53,7 @@ public class Main {
 
 //cos -sin -cos sin cos
 
-		for(int op = 0 ;op  < 13 ; op ++){
+		for(int op = 0 ;op  < 13 ;  ++op){
 
 			double tmp = Math.pow(dataT,op)*Math.cos(0)/factorial(op);
 
@@ -79,8 +79,8 @@ public class Main {
 		double myE  = 0;
 		double myE2 = 1;
 
-		for (int i = 100; i > 0; --i )
-			myE2 = 1 + data * myE2 / i;
+		for (int op = 100; op > 0; --op )
+			myE2 = 1 + data * myE2 / op;
 
 		for(int op = 0 ; op < 13 ; op ++){
 
@@ -104,7 +104,7 @@ public class Main {
 		double powVal = 0.5;
 		double multiplier = 1;
 
-		for(int op = 1 ; op < 13 ; op ++){
+		for(int op = 1 ; op < 13 ;  ++op){
 
 			double tmp = powVal * multiplier * Math.pow(9,powVal-1)/factorial(op);
 			powVal--;
