@@ -23,14 +23,17 @@ public class Main {
 //sin cos -sin -cos sin
 		for(int op = 0 ;op < 17 ; op ++){
 
+			double tmp = Math.pow(dataT,op)*(Math.cos(0))/factorial(op);
+
 			switch (op%4){
 
+
 				case 3:
-					mySin-= Math.pow(dataT,op)*(Math.cos(0))/factorial(op);
+					mySin-= tmp;
 					break;
 
 				case 1:
-					mySin+= Math.pow(dataT,op)*(Math.cos(0))/factorial(op);
+					mySin+= tmp;
 					break;
 
 			}
@@ -47,13 +50,16 @@ public class Main {
 
 		for(int op = 0 ;op  < 17 ; op ++){
 
+			double tmp = Math.pow(dataT,op)*Math.cos(0)/factorial(op);
+
 			switch (op%4){
 
+
 				case 0:
-					myCos+= Math.pow(dataT,op)*Math.cos(0)/factorial(op);
+					myCos+= tmp;
 					break;
 				case 2:
-					myCos-= Math.pow(dataT,op)*Math.cos(0)/factorial(op);
+					myCos-= tmp;
 
 			}
 
@@ -76,16 +82,7 @@ public class Main {
 		System.out.println(myE);
 		System.out.println();
 
-		double mySqrt = 0;
-		double val = scanner.nextDouble();
-		double powVal = scanner.nextDouble();
-		double sqrt = Math.sqrt(val);
-
-		mySqrt += (Math.pow(10,0)*Math.pow(0,0.5))/factorial(0)
-				+(Math.pow(10,1)*Math.pow(0,0.5)*0.5)/factorial(1);
-	//			+(Math.pow(10,2)*Math.pow(0,-1.5)*-0.5)/factorial(2);
-		System.out.println(sqrt);
-		System.out.println(mySqrt);
+		
 
 	}
 
