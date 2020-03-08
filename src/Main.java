@@ -23,7 +23,7 @@ public class Main {
 		}
 
 //sin cos -sin -cos sin
-		for(int op = 0 ;op < 17 ; op ++){
+		for(int op = 0 ;op < 13 ; op ++){
 
 			double tmp = Math.pow(dataT,op)*(Math.cos(0))/factorial(op);
 
@@ -53,7 +53,7 @@ public class Main {
 
 //cos -sin -cos sin cos
 
-		for(int op = 0 ;op  < 17 ; op ++){
+		for(int op = 0 ;op  < 13 ; op ++){
 
 			double tmp = Math.pow(dataT,op)*Math.cos(0)/factorial(op);
 
@@ -76,19 +76,25 @@ public class Main {
 		System.out.println(myCos - cos);
 
 		double e = Math.E;
-		BigDecimal myE  = BigDecimal.ZERO;
-		BigDecimal result = BigDecimal.ZERO;
+		double myE  = 0;
+		double myE2 = 1;
 
+		for (int i = 100; i > 0; --i )
+			myE2 = 1 + data * myE2 / i;
 
-		for(int op = 0 ; op < 17 ; op ++){
+		for(int op = 0 ; op < 13 ; op ++){
+
+			double tmp = Math.pow(data,op)/factorial(op);
+			myE+= tmp;
 
 		}
 
 		System.out.println("\nE results:");
 		System.out.println(Math.pow(e,data) + " - computer's result.");
-		System.out.println(myE + " - my result.");
+		System.out.println(myE + " - my result vol1.");
+		System.out.println(myE2 + " - my result vol2.");
 		System.out.print("difference: ");
-//		System.out.println(myE - Math.pow(e,data));
+		System.out.println(myE2 - Math.pow(e,data));
 		System.out.println();
 
 		double sqr = 3 +( 0.5 * Math.pow(9,-0.5))/factorial(1) - (0.25*Math.pow(9,-1.5))/factorial(2)
@@ -98,7 +104,7 @@ public class Main {
 		double powVal = 0.5;
 		double multiplier = 1;
 
-		for(int op = 1 ; op < 17 ; op ++){
+		for(int op = 1 ; op < 13 ; op ++){
 
 			double tmp = powVal * multiplier * Math.pow(9,powVal-1)/factorial(op);
 			powVal--;
@@ -130,17 +136,6 @@ public class Main {
 			return 1;
 		return y;
 	}
-
-	public static BigDecimal factorialBig(int x){
-
-		int y = x;
-		while(x > 1)
-			y*=--x;
-		if(y < 1)
-			return BigDecimal.ONE;
-		return new BigDecimal(String.valueOf(y));
-	}
-
 
 
 }
