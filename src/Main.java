@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
@@ -29,19 +31,22 @@ public class Main {
 
 
 				case 3:
-					mySin-= tmp;
+					mySin+= tmp;
 					break;
 
 				case 1:
-					mySin+= tmp;
+					mySin-= tmp;
 					break;
 
 			}
 
 		}
 		System.out.println("SIN results:");
-		System.out.println(sinProgram);
-		System.out.println(mySin +"\n");
+		System.out.println(sinProgram + " - computer's result.");
+		System.out.println(mySin +" - my result.");
+		System.out.print("difference: ");
+		System.out.println(mySin - sinProgram);
+		System.out.println();
 
 		double cos = Math.cos(dataT);
 		double myCos = 0;
@@ -65,37 +70,52 @@ public class Main {
 
 		}
 		System.out.println("COS results:");
-		System.out.println(cos);
-		System.out.println(myCos);
+		System.out.println(cos + " - computer's result.");
+		System.out.println(myCos + " - my result.");
+		System.out.print("difference: ");
+		System.out.println(myCos - cos);
 
 		double e = Math.E;
-		double myE  = 0;
+		BigDecimal myE  = BigDecimal.ZERO;
+		BigDecimal result = BigDecimal.ZERO;
+
 
 		for(int op = 0 ; op < 17 ; op ++){
-
-			myE += Math.pow(dataT,op)/factorial(op);
 
 		}
 
 		System.out.println("\nE results:");
-		System.out.println(Math.pow(e,dataT));
-		System.out.println(myE);
+		System.out.println(Math.pow(e,data) + " - computer's result.");
+		System.out.println(myE + " - my result.");
+		System.out.print("difference: ");
+//		System.out.println(myE - Math.pow(e,data));
 		System.out.println();
 
 		double sqr = 3 +( 0.5 * Math.pow(9,-0.5))/factorial(1) - (0.25*Math.pow(9,-1.5))/factorial(2)
-				+ ((3/(double)8) * Math.pow(9,-2.5))/factorial(3) ;
+				+ ((3/(double)8) * Math.pow(9,-2.5))/factorial(3)  + (double)(15/16) * Math.pow(9,3.5)/factorial(4) ;
 
 		double msqr = 3;
+		double powVal = 0.5;
+		double multiplier = 1;
 
-		for(int op = 0 ; op < 3; op ++){
+		for(int op = 1 ; op < 17 ; op ++){
 
+			double tmp = powVal * multiplier * Math.pow(9,powVal-1)/factorial(op);
+			powVal--;
+			multiplier*=powVal;
+			if(op%2==1)
+				msqr+=tmp;
+			else
+				msqr-=tmp;
 
-			
 		}
 
-		System.out.println(sqr);
-		System.out.println(Math.sqrt(10));
-
+		System.out.println("Sqrt results:");
+		System.out.println(Math.sqrt(10) + " computer result.");
+		System.out.println(sqr + " - my result vol1.");
+		System.out.println(msqr + " - my result vol2.");
+		System.out.print("difference: ");
+		System.out.println(sqr -Math.sqrt(10));
 
 
 	}
@@ -110,6 +130,17 @@ public class Main {
 			return 1;
 		return y;
 	}
+
+	public static BigDecimal factorialBig(int x){
+
+		int y = x;
+		while(x > 1)
+			y*=--x;
+		if(y < 1)
+			return BigDecimal.ONE;
+		return new BigDecimal(String.valueOf(y));
+	}
+
 
 
 }
