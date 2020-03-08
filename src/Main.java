@@ -82,7 +82,21 @@ public class Main {
 		System.out.println(myE);
 		System.out.println();
 
-		
+		double sqr = 3 +( 0.5 * Math.pow(9,-0.5))/factorial(1) - (0.25*Math.pow(9,-1.5))/factorial(2)
+				+ ((3/(double)8) * Math.pow(9,-2.5))/factorial(3) ;
+
+		double msqr = 3;
+
+		for(int op = 0 ; op < 3; op ++){
+
+
+			
+		}
+
+		System.out.println(sqr);
+		System.out.println(Math.sqrt(10));
+
+
 
 	}
 
